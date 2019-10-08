@@ -143,6 +143,9 @@ class Admin_Settings_Helper {
 		if ( class_exists( 'WC_Memberships_Loader' ) ) {
 			$this->add_tab_details( 'members_area', isset( $tabs['members_area'] ) ? $tabs['members_area'] : array(), $panel_special );
 		}
+		if ( class_exists( 'Woo_Wallet_Wallet' ) ) {
+			$this->add_tab_details( 'wallet', isset( $tabs['wallet'] ) ? $tabs['wallet'] : array(), $panel_special );
+		}
 
 		// Save page for future reference.
 		$this->page = $page;
