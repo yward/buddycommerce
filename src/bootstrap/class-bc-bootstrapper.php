@@ -19,6 +19,10 @@ use BuddyCommerce\Core\Users\Filters\BC_Condition_Filters;
 use BuddyCommerce\Core\Users\Handlers\BC_Checkout_Endpoint_Screen_Handler;
 use BuddyCommerce\Core\Users\Handlers\BC_Membership_Endpoint_Screen_Handler;
 use BuddyCommerce\Core\Users\Handlers\BC_View_Subscription_Screen_Handler;
+use BuddyCommerce\Core\Users\Handlers\BC_View_Wallet_Screen_Handler;
+use BuddyCommerce\Core\Users\Handlers\BC_Add_Wallet_Screen_Handler;
+use BuddyCommerce\Core\Users\Handlers\BC_Transfer_Wallet_Screen_Handler;
+use BuddyCommerce\Core\Users\Handlers\BC_Transactions_Wallet_Screen_Handler;
 use BuddyCommerce\Core\Users\Redirects\BC_Account_Redirects;
 use BuddyCommerce\Core\Users\Handlers\BC_Tabs_Helper;
 use BuddyCommerce\Core\Users\Handlers\BC_View_Order_Screen_Handler;
@@ -113,7 +117,10 @@ class BC_Bootstrapper {
 		BC_View_Subscription_Screen_Handler::boot();
 		BC_Checkout_Endpoint_Screen_Handler::boot();
 		BC_Membership_Endpoint_Screen_Handler::boot();
-
+		BC_View_Wallet_Screen_Handler::boot();
+		BC_Add_Wallet_Screen_Handler::boot();
+		BC_Transfer_Wallet_Screen_Handler::boot();
+		BC_Transactions_Wallet_Screen_Handler::boot();
 		BC_URL_Filters::boot();
 		BC_Condition_Filters::boot();
 		BC_Tabs_Helper::boot();
