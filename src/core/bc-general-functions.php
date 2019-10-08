@@ -426,6 +426,8 @@ function bcommerce_get_endpoint_slug( $endpoint ) {
 
 	if ( 'members-area' === $endpoint && function_exists( 'wc_memberships_get_members_area_endpoint' ) ) {
 		$endpoint = wc_memberships_get_members_area_endpoint();
+	if ( 'wallet' === $endpoint && function_exists( 'woocommerce_woo_wallet_endpoint' ) ) {
+		$endpoint = woocommerce_woo_wallet_endpoint();
 	}
 
 	return ! empty( $query_vars[ $endpoint ] ) ? $query_vars[ $endpoint ] : $endpoint;
