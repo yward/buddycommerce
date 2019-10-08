@@ -186,6 +186,19 @@ function bcommerce_get_wc_tabs_details() {
 		);
 	}
 
+	if ( class_exists( 'Woo_Wallet_Wallet' ) ) {
+		$tabs['members_area'] = array(
+			'enabled'              => 0,
+			'endpoint'             => true,
+			'label'                => __( 'Wallet', 'buddycommerce' ),
+			//'slug'                 => 'wallet',
+			'desc'                 => __( 'Wallet tab settings.', 'buddycommerce' ),
+			'is_top_level'         => 1,
+			'redirect'             => 1,
+			'redirect_description' => __( 'Redirect WooCommerce Wallet page to BuddyPress profile page', 'buddycommerce' ),
+		);
+	}
+
 	return apply_filters( 'bcommerce_wc_tabs', $tabs );
 }
 
@@ -388,6 +401,9 @@ function bcommerce_get_view_callback( $tab ) {
 		case 'members_area':
 			$callback = array( $screen, 'memberships' );
 			break;
+		case 'wallet':
+			$callback = array( $screen, 'wallet' );
+			break;	
 	}
 
 	$callback = apply_filters( 'bcommerce_tab_view_callback', $callback, $tab );
